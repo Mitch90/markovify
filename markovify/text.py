@@ -89,7 +89,7 @@ class Text(object):
         """
         A basic sentence filter. This one rejects sentences that contain
         the type of punctuation that would look strange on its own
-        in a randomly-generated sentence. 
+        in a randomly-generated sentence.
         """
         reject_pat = re.compile(r"(^')|('$)|\s'|'\s|[\"(\(\)\[\])]")
         # Decode unicode, mainly to normalize fancy quotation marks
@@ -104,7 +104,7 @@ class Text(object):
     def generate_corpus(self, text):
         """
         Given a text string, returns a list of lists; that is, a list of
-        "sentences," each of which is a list of words. Before splitting into 
+        "sentences," each of which is a list of words. Before splitting into
         words, the sentences are filtered through `self.test_sentence_input`
         """
         sentences = self.sentence_split(text)
@@ -131,7 +131,7 @@ class Text(object):
             if gram_joined in self.rejoined_text:
                 return False
         return True
-            
+
     def make_sentence(self, init_state=None, **kwargs):
         """
         Attempts `tries` (default: 10) times to generate a valid sentence,
@@ -143,10 +143,10 @@ class Text(object):
         If `init_state` (a tuple of `self.chain.state_size` words) is not specified,
         this method chooses a sentence-start at random, in accordance with
         the model.
-        
+
         If `test_output` is set as False then the `test_sentence_output` check
         will be skipped.
-        
+
         If `max_words` is specified, the word count for the sentence will be
         evaluated against the provided limit.
         """

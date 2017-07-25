@@ -2,7 +2,7 @@ import markovify
 import nltk
 import re
 
-class POSifiedText(markovify.Text):
+class POSifiedText(marcovify.Text):
     def word_split(self, sentence):
         words = re.split(self.word_split_pattern, sentence)
         words = [ "::".join(tag) for tag in nltk.pos_tag(words) ]
@@ -17,9 +17,9 @@ with open("textSources/lupi.txt") as f:
     text = f.read()
 
 # Build the model.
-text_model = markovify.Text(text)
+# text_model = markovify.Text(text)
 
-text_POSmodel = markovify.POSifiedText(text_model)
+text_POSmodel = POSifiedText(text)
 
 # Print three randomly-generated sentences of no more than 140 characters
 for i in range(1):
